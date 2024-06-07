@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="favicon.ico" type="image/svg+xml">
+   <title>Example-2</title>
+</head>
+
+<body>
+   <style>
+      body {
+         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      html,
+      body {
+         height: 100%;
+      }
+
+      body {
+         display: flex;
+         flex-direction: column;
+         background-color: #ededed;
+      }
+
+      .main {
+         flex: 1 0 auto;
+         box-sizing: border-box;
+         max-width: 900px;
+         margin: 0 auto;
+         background-color: #ffffff;
+      }
+
+      .footer {
+         flex: 0 0 auto;
+      }
+
+      :root {
+         --mycolor1: #000;
+         --mycolor2: #f4cb1e;
+         --mycolor3: #242323;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      * h2,
+      p,
+      h3,
+      h4 {
+         margin: 0 0 10px 0 !important;
+      }
+
+      /*-----------------------*/
+
+      .farming {
+         padding: 140px 20px 200px;
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: url(img-2/banner.jpg);
+         background-size: cover;
+         background-attachment: fixed;
+         color: #fff;
+      }
+
+      ._container {
+         max-width: 900px;
+         margin: 0 auto;
+      }
+
+      .farming-content {}
+
+      .farming-title {
+         font-size: 80px;
+         line-height: 90px;
+         padding-bottom: 10px;
+         font-weight: 600;
+      }
+
+      .farming-sub-title {
+         font-size: 16px;
+      }
+
+      .farming-button {
+         font-size: 17px;
+         background-color: transparent;
+         color: #fff;
+         font-weight: 600;
+         padding: 15px 70px;
+         text-align: center;
+         display: inline-block;
+         border-radius: 30px;
+         border: var(--mycolor2) solid 4px;
+         transition: ease-in all 0.5s;
+         margin: 20px 0;
+      }
+
+      .farming-button:hover {
+         background-color: var(--mycolor1);
+         transition: ease-in all 0.5s;
+      }
+
+      @media screen and (max-width: 500px) {
+         .farming {
+            padding: 140px 10px 200px;
+         }
+
+         .farming-title {
+            font-size: 50px;
+            line-height: 60px;
+
+         }
+      }
+
+      /*----------vegans------------*/
+      .vegans {
+         padding: 40px 20px;
+      }
+
+      .top-vegans {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         margin: -170px 0 0 0;
+      }
+
+      .top-vegans-item {
+         margin: 10px;
+         display: flex;
+         flex: 1 1 30%;
+         transition: .3s;
+      }
+
+      .top-vegans-item:hover {
+         transform: translateY(-10px);
+         transition: .3s;
+      }
+
+      .top-vegans-item img {
+         width: 100%;
+         box-shadow: 0 0 95px rgba(13, 3, 3, 0.56);
+         transition: .3s;
+      }
+
+      .bottom-vegans {
+         padding: 50px 0 30px;
+      }
+
+      .bottom-vegans-body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         align-items: center;
+      }
+
+      .bottom-vegans-title-area {
+         display: flex;
+         justify-content: center;
+         text-align: left;
+         margin: 10px;
+         flex: 1 1 40%;
+      }
+
+      .bottom-vegans-title {
+         font-size: 40px;
+         line-height: 50px;
+         color: #000;
+      }
+
+      .bottom-vegans-text-area {
+         display: flex;
+         justify-content: center;
+         text-align: left;
+         color: #fff;
+         flex: 1 1 40%;
+         background-color: var(--mycolor2);
+         padding: 40px 30px;
+         margin: 10px 10px 10px 25px;
+         position: relative;
+      }
+
+      .bottom-vegans-text-area::before {
+         position: absolute;
+         content: '';
+         left: -23px;
+         top: 50%;
+         margin-top: -25px;
+         width: 0;
+         height: 0;
+         border-top: 20px solid transparent;
+         border-right: 25px solid var(--mycolor2);
+         border-bottom: 20px solid transparent;
+      }
+
+      .bottom-vegans-text {
+         font-size: 16px;
+         line-height: 22px;
+         margin: 0 !important;
+      }
+
+      @media screen and (max-width: 500px) {
+         .vegans {
+            padding: 40px 0;
+         }
+
+         .bottom-vegans-text-area {
+            margin: 10px;
+         }
+
+         .bottom-vegans-text-area::before {
+            content: none;
+         }
+
+         .top-vegans-item {
+            flex: 1 1 100%;
+         }
+
+         .top-vegans-item img {
+            width: 100%;
+            box-shadow: 0 0 10px rgba(13, 3, 3, 0.56);
+         }
+      }
+
+      /*--------choose-------*/
+      .choose {
+         padding: 40px 0px 70px;
+         background-color: var(--mycolor3);
+         color: #fff;
+         clip-path: polygon(0 90%, 100% 100%, 100% 0, 0 0);
+      }
+
+      .choose__container {
+         padding: 0 20px;
+      }
+
+      ._container {}
+
+      .choose-body {
+         padding: 40px 0;
+      }
+
+      .choose-title {
+         font-size: 40px;
+         line-height: 50px;
+      }
+
+      .choose-text {
+         font-size: 16px;
+         line-height: 28px;
+      }
+
+      .choose-content {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .choose-items {
+         display: flex;
+         flex: 1 1 45%;
+         flex-wrap: wrap;
+         gap: 10px;
+         margin: 10px 0;
+      }
+
+      .item-choose {
+         display: flex;
+         flex: 1 1 40%;
+         gap: 10px;
+      }
+
+      .item-choose-icon {}
+
+      .item-choose-icon img {
+         width: 28px;
+         padding: 8px;
+         background-color: #f4cb1e;
+         border: 2px solid var(--mycolor2);
+         border-radius: 50%;
+         transition: .6s;
+
+      }
+
+      .item-choose:hover .item-choose-icon img {
+         background-color: var(--mycolor3);
+         transform: rotate(360deg);
+      }
+
+      .item-choose-content {}
+
+      .item-choose-title {
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .item-choose-text {
+         font-size: 14px;
+         line-height: 24px;
+      }
+
+      .choose-image {
+         display: flex;
+         flex: 1 1 45%;
+         background-color: #fff;
+         margin: 10px 10px 10px 40px;
+      }
+
+      .choose-image img {
+         width: 100%;
+         margin: 15px 15px 15px -20px;
+      }
+
+      .choose-button {
+         display: inline-block;
+         padding: 15px 40px;
+         margin: 15px 0;
+         background-color: var(--mycolor2);
+         color: #ffffff;
+         transition: .4s;
+      }
+
+      .choose-button:hover {
+         background-color: #fff;
+         color: #000000;
+         transition: .4s;
+      }
+
+
+
+
+      @media screen and (max-width: 900px) {
+
+         .choose {
+            clip-path: polygon(0 90%, 100% 100%, 100% 0, 0 0);
+         }
+
+         .choose-image {
+            flex: 1 1 100%;
+         }
+
+      }
+
+      @media screen and (max-width: 500px) {
+         .choose {
+            padding: 40px 10px;
+         }
+
+         .choose {
+            clip-path: polygon(0 95%, 100% 100%, 100% 0, 0 0);
+         }
+
+         .item-choose {
+            flex: 1 1 100%;
+
+         }
+
+         .choose__container {
+            padding: 0 10px;
+         }
+      }
+
+      /*----------products------------*/
+      .products {
+         padding: 40px 10px 60px;
+      }
+
+      .products-title {
+         font-size: 30px !important;
+         line-height: 40px !important;
+         color: #000;
+         font-weight: 600 !important;
+         padding: 0 0 10px 20px;
+      }
+
+      .products-body {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 20px;
+      }
+
+      .products-item {
+         display: flex;
+         box-shadow: 0 0 51px rgba(13, 3, 3, 0.13);
+         position: relative;
+         overflow: hidden;
+      }
+
+      .products-item:nth-child(1) {
+         flex: 1 1 50%;
+      }
+
+      .products-item:nth-child(2) {
+         flex: 1 1 22%;
+      }
+
+      .products-item:nth-child(3) {
+         flex: 1 1 22%;
+      }
+
+      .products-item:nth-child(4) {
+         flex: 1 1 55%;
+      }
+
+      .products-item:nth-child(5) {
+         flex: 1 1 35%;
+      }
+
+      .products-item img {
+         width: 100%;
+         transition: .4s;
+      }
+
+      .products-item:hover img {
+         transform: scale(1.05);
+         transition: .4s;
+      }
+
+      .products-item-text {
+         position: absolute;
+         text-transform: uppercase !important;
+         font-weight: 600 !important;
+         font-size: 16px !important;
+         margin: 0px !important;
+         padding: 10px;
+         bottom: 0;
+         right: 0;
+         color: #fff;
+      }
+
+      .products-item-text-black {
+         color: #000;
+      }
+
+      @media screen and (max-width: 500px) {
+         .products-item {
+            flex: 1 1 100% !important;
+         }
+
+         .products {
+            padding: 40px 10px;
+         }
+      }
+
+
+
+      /*-----advantages-----*/
+
+      .advantages {
+         padding: 90px 10px 40px;
+         color: var(--mycolor1);
+         background-color: var(--mycolor3);
+         clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+
+      }
+
+      .advantages__container {}
+
+      ._container {}
+
+      .advantage-title {
+         font-size: 30px !important;
+         line-height: 40px !important;
+         text-align: center;
+         color: #fff;
+      }
+
+      .advantage-body {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+      }
+
+      .advantage-item {
+         padding: 20px;
+         margin: 10px;
+         flex: 1 1 30%;
+         background-color: var(--mycolor2);
+         text-align: left;
+         clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+         transition: .3s;
+
+      }
+
+      .advantage-item:hover img {
+         transform: scale(1.1);
+         transition: .3s;
+      }
+
+      .advantage-item-top {
+         display: flex;
+         justify-content: start;
+         align-items: center;
+         margin: 10px 0;
+      }
+
+
+      .advantage-item-icon {}
+
+      .advantage-item-icon img {
+         transition: .5s;
+         width: 64px;
+         height: 64px;
+      }
+
+      .advantage-item-title {
+         font-size: 20px !important;
+         font-weight: 600 !important;
+         line-height: 20px !important;
+         padding-left: 30px;
+         display: inline-block;
+         color: var(--mycolor3);
+         margin: 0 !important;
+         transition: .3s;
+      }
+
+      .advantage-item-title::first-letter {
+         color: #fff;
+         font-size: 28px !important;
+         text-transform: uppercase;
+         transition: .3s;
+      }
+
+      .advantage-item:hover .advantage-item-title {
+         color: #fff;
+         transition: .3s;
+      }
+
+      .advantage-item:hover .advantage-item-title::first-letter {
+         color: var(--mycolor3);
+         transition: .3s;
+      }
+
+      .advantage-item-text {
+         color: #fff;
+      }
+
+      @media screen and (max-width: 500px) {
+         .advantages {
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+         }
+      }
+
+      /*----------review------------*/
+
+      .review {}
+
+      .review-title {
+         font-size: 30px !important;
+         line-height: 40px !important;
+         text-align: center;
+      }
+
+      .review__container {
+         padding: 40px 20px;
+      }
+
+      .container {}
+
+      .review-body {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+      }
+
+
+      .item-review {
+         display: flex;
+         flex-direction: column;
+         flex: 1 1 30%;
+         background: url(img-2/te.png) no-repeat;
+         background-repeat: no-repeat;
+         background-size: 100% 100%;
+         position: relative;
+         margin: 40px 10px;
+         padding: 50px 25px 25px 70px;
+      }
+
+      /*
+
+      .item-review-form {
+         left: 0;
+         top: 0;
+         position: absolute;
+         width: 0;
+         height: 0;
+         border-bottom: 100px solid #fff;
+         border-right: 100px solid transparent;
+      }
+
+*/
+      .item-review-image {
+         position: absolute;
+         top: -20px;
+         left: 20px;
+      }
+
+      .item-review-image img {
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+      }
+
+      .item-review-name {
+         display: inline-block;
+         font-size: 20px !important;
+         font-weight: 600 !important;
+         text-transform: uppercase;
+         padding-left: 40px;
+      }
+
+      .item-review-text {
+         color: #ffffff;
+      }
+   </style>
+   <div class="main">
+      <section class="farming">
+         <div class="farming__container _container">
+            <div class="farming-content">
+               <p class="farming-title">FARMING COMPANY</p>
+               <p class="farming-sub-title">It is a long established fact that a reader will be distracted by the
+                  readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making
+                  it
+               </p>
+               <a class="farming-button" href="">Discover
+               </a>
+            </div>
+         </div>
+      </section>
+      <section class="vegans">
+         <div class="vegans__container _container">
+            <div class="vegans-top top-vegans">
+               <div class="top-vegans-item">
+                  <img src="img-2/img1.jpg" alt="">
+               </div>
+               <div class="top-vegans-item">
+                  <img src="img-2/img2.jpg" alt="">
+               </div>
+               <div class="top-vegans-item">
+                  <img src="img-2/img3.jpg" alt="">
+               </div>
+            </div>
+            <div class="vegans-bottom bottom-vegans">
+               <div class="bottom-vegans-body">
+                  <div class="bottom-vegans-title-area">
+                     <h2 class="bottom-vegans-title">Декілька слів про нашу компанію</h2>
+                  </div>
+                  <div class="bottom-vegans-text-area">
+                     <p class="bottom-vegans-text">There are many variations of passages of Lorem Ipsum available, but
+                        the majority have suffered alteration in some form, by injected humour, or randomised words
+                        which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you
+                        need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem
+                        Ipsum generators on the Internet tend to repeat predefined There are many variations of passages
+                        of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected
+                        humour, or randomised words which don't look even slightly believable. If you are going to use a
+                        passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                        middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="choose">
+         <div class="choose__container _container">
+            <div class="choose-body">
+               <h2 class="choose-title">Особливості товару </h2>
+               <p class="choose-text">there isn't anything embarrassing hidden in the middle of text. All the Lorem
+                  Ipsum generators on the Internet tend to repeat predefined</p>
+               <div class="choose-content">
+                  <div class="choose-items">
+                     <div class="choose-item item-choose">
+                        <div class="item-choose-icon"><img src="img-2/icon1.png" alt=""></div>
+                        <div class="item-choose-content">
+                           <h4 class="item-choose-title">
+                              Excellent Service
+                           </h4>
+                           <p class="item-choose-text">It is a long established fact that a reader will be distracted by
+                              the readable content of a</p>
+                        </div>
+                     </div>
+                     <div class="choose-item item-choose">
+                        <div class="item-choose-icon"><img src="img-2/icon2.png" alt=""></div>
+                        <div class="item-choose-content">
+                           <h4 class="item-choose-title">
+                              Clean Working
+                           </h4>
+                           <p class="item-choose-text">It is a long established fact that a reader will be distracted by
+                              the readable content of a</p>
+                        </div>
+                     </div>
+                     <div class="choose-item item-choose">
+                        <div class="item-choose-icon"><img src="img-2/icon3.png" alt=""></div>
+                        <div class="item-choose-content">
+                           <h4 class="item-choose-title">
+                              Quality And Reliability
+                           </h4>
+                           <p class="item-choose-text">It is a long established fact that a reader will be distracted by
+                              the readable content of a</p>
+                        </div>
+                     </div>
+                     <div class="choose-item item-choose">
+                        <div class="item-choose-icon"><img src="img-2/icon4.png" alt=""></div>
+                        <div class="item-choose-content">
+                           <h4 class="item-choose-title">
+                              Expert Farmer
+                           </h4>
+                           <p class="item-choose-text">It is a long established fact that a reader will be distracted by
+                              the readable content of a</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="choose-image"><img src="img-2/food.jpg" alt=""></div>
+               </div>
+               <a href="" class="choose-button">Read More</a>
+            </div>
+         </div>
+      </section>
+      <section class="products">
+         <h2 class="products-title">Наші товари</h2>
+         <div class="products-body">
+            <div class="products-item">
+               <img src="img-2/product1.jpg" alt="">
+               <h4 class="products-item-text products-item-text-black">VEGETABLE</h4>
+            </div>
+            <div class="products-item">
+               <img src="img-2/product2.jpg" alt="">
+               <h4 class="products-item-text">WEAT</h4>
+            </div>
+            <div class="products-item">
+               <img src="img-2/product3.jpg" alt="">
+               <h4 class="products-item-text">fruit</h4>
+            </div>
+            <div class="products-item">
+               <img src="img-2/product4.jpg" alt="">
+               <h4 class="products-item-text">sunflowere</h4>
+            </div>
+            <div class="products-item">
+               <img src="img-2/product5.jpg" alt="">
+               <h4 class="products-item-text">Livestock</h4>
+            </div>
+         </div>
+      </section>
+      <section class="advantages">
+         <div class="advantages__container _container">
+            <h2 class="advantage-title">Переваги роботи з нами</h2>
+            <div class="advantage-body">
+               <div class="advantage-item">
+                  <div class="advantage-item-top">
+                     <div class="advantage-item-icon"><img src="img-2/advantage1.png" alt=""></div>
+                     <h4 class="advantage-item-title">quality</h4>
+                  </div>
+                  <p class="advantage-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quia
+                     recusandae sint voluptates fuga exercitationem veniam eos iste omnis? Hic reiciendis laudantium
+                     molestias voluptates nesciunt incidunt odio sapiente totam quasi!</p>
+               </div>
+               <div class="advantage-item">
+                  <div class="advantage-item-top">
+                     <div class="advantage-item-icon"><img src="img-2/advantage2.png" alt=""></div>
+                     <h4 class="advantage-item-title">prices</h4>
+                  </div>
+                  <p class="advantage-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quia
+                     recusandae sint voluptates fuga exercitationem veniam eos iste omnis? Hic reiciendis laudantium
+                     molestias voluptates nesciunt incidunt odio sapiente totam quasi!</p>
+               </div>
+               <div class="advantage-item">
+                  <div class="advantage-item-top">
+                     <div class="advantage-item-icon"><img src="img-2/advantage3.png" alt=""></div>
+                     <h4 class="advantage-item-title">support</h4>
+                  </div>
+                  <p class="advantage-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quia
+                     recusandae sint voluptates fuga exercitationem veniam eos iste omnis? Hic reiciendis laudantium
+                     molestias voluptates nesciunt incidunt odio sapiente totam quasi!</p>
+               </div>
+               <div class="advantage-item">
+                  <div class="advantage-item-top">
+                     <div class="advantage-item-icon"><img src="img-2/advantage4.png" alt=""></div>
+                     <h4 class="advantage-item-title">delivery</h4>
+                  </div>
+                  <p class="advantage-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quia
+                     recusandae sint voluptates fuga exercitationem veniam eos iste omnis? Hic reiciendis laudantium
+                     molestias voluptates nesciunt incidunt odio sapiente totam quasi!</p>
+               </div>
+
+            </div>
+         </div>
+      </section>
+      <section class="review">
+         <div class="review__container container">
+            <h2 class="review-title">Відгуки наших клієнтів</h2>
+
+            <div class="review-body">
+               <div class="review-item item-review">
+                  <div class="item-review-image"><img src="img-2/tes1.png" alt=""></div>
+                  <p class="item-review-name">jhone Du</p>
+                  <p class="item-review-text">It is a long established fact that a reader will be distracted by the
+                     readable content of a page when looking at its layout. </p>
+
+                  <div class="item-review-form"></div>
+               </div>
+               <div class="review-item item-review">
+                  <div class="item-review-image"><img src="img-2/tes2.png" alt=""></div>
+                  <p class="item-review-name">Steave Fo</p>
+                  <p class="item-review-text">It is a long established fact that a reader will be distracted by the
+                     readable content of a page when looking at its layout. </p>
+
+                  <div class="item-review-form"></div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+   <footer class="footer">footer</footer>
+</body>
+
+</html>
